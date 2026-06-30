@@ -4,19 +4,19 @@ import { initPageTransitions, playEnterTransition } from './transitions';
 import { initGlitchText } from './glitch-text';
 
 const captions = [
-  '30 knots <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2021',
+  'Waiting for the Train 2024',
   'Sad Mis-Step <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2024',
-  'Mini Orange <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2014',
-  'After Storm <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2022',
-  'Untitled <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2016',
-  'Toilet Paper <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2022',
-  'Cocoa Eggplant Tomato <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2025',
-  'Production Fun Fact (Eggs) <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2024',
-  'Field Notes <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2023',
-  'Blue Hour <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2020',
-  'Still Life <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2019',
-  'Window Light <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2021',
-  'Open Road <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2022',
+  'Niagara Falls<br>The Canadian boat<br>The border between New York, USA, and Canada<br>2024',
+  'Tornoto, Canada <br>Diversity Our Strength<br>Toronto\'s skyline<br>2024',
+  'Wonder <br>Grove Park<br>Watching the wonder in the world we once played in<br>2024',
+  'Lady in Rain <br>Chicago, Illinois <br>Planned for a Sunny day, but the day turned around<br>2024',
+  'Time<br>Chicago, Illinois<br>Can\'t let time pass without notice<br>2025',
+  'The Wild<br>Wildlife Safari<br>Life in the Wild is unpredictable<br>2024',
+  'Eiffel Tower<br>Paris, France<br>A child\'s last visit to Paris<br>2018',
+  'Louis Vitton<br>Miami, Florida<br>Because you visit the city\'s luxury district<br>2025',
+  'Tennis<br>UCLA, Los Angeles<br>The summer games begin<br>2019',
+  'Taj Mahal<br>A World\'s Wonder<br>Breaking the 15 year wait<br>2023',
+  'St Paul\'s Cathedral<br>Busy London Morning<br>Every road leads to the dome<br>2019',
 ];
 
 const sources = [
