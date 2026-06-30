@@ -1,0 +1,20 @@
+@import './util';
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: $white;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+html.page-transition-pending .page-transition {
+  transform: scaleY(1);
+}
+
+html.page-transition-pending body {
+  overflow: hidden;
+}

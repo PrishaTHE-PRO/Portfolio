@@ -1,0 +1,89 @@
+import '../styles/index.scss';
+import InfiniteGrid from './infinite-grid';
+import { initPageTransitions, playEnterTransition } from './transitions';
+import { initGlitchText } from './glitch-text';
+
+const captions = [
+  '30 knots <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2021',
+  'Sad Mis-Step <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2024',
+  'Mini Orange <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2014',
+  'After Storm <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2022',
+  'Untitled <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2016',
+  'Toilet Paper <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2022',
+  'Cocoa Eggplant Tomato <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2025',
+  'Production Fun Fact (Eggs) <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2024',
+  'Field Notes <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2023',
+  'Blue Hour <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2020',
+  'Still Life <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2019',
+  'Window Light <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2021',
+  'Open Road <br>12 x 16 inch C type hand print <br>Edition of 1 Plus an additional artist Proof <br>2022',
+];
+
+const sources = [
+  { src: 'IMG_0274.JPG', naturalW: 1078, naturalH: 1503, caption: captions[0] },
+  { src: 'IMG_0481.JPG', naturalW: 1225, naturalH: 1791, caption: captions[1] },
+  { src: 'IMG_0972.JPG', naturalW: 1741, naturalH: 1280, caption: captions[2] },
+  { src: 'IMG_1066.JPG', naturalW: 1883, naturalH: 1255, caption: captions[3] },
+  { src: 'IMG_1590.JPG', naturalW: 1280, naturalH: 1744, caption: captions[4] },
+  { src: 'IMG_1592.JPG', naturalW: 1120, naturalH: 1624, caption: captions[5] },
+  { src: 'IMG_2699.JPG', naturalW: 1565, naturalH: 2128, caption: captions[6] },
+  { src: 'IMG_2782.jpg', naturalW: 1170, naturalH: 882, caption: captions[7] },
+  { src: 'IMG_3572.JPG', naturalW: 2448, naturalH: 3264, caption: captions[8] },
+  { src: 'IMG_4434.JPG', naturalW: 1638, naturalH: 2150, caption: captions[9] },
+  { src: 'IMG_7174.JPG', naturalW: 1920, naturalH: 1280, caption: captions[10] },
+  { src: 'IMG_8340.JPG', naturalW: 2377, naturalH: 3155, caption: captions[11] },
+  { src: 'IMG_9792.JPG', naturalW: 1125, naturalH: 1500, caption: captions[12] },
+];
+
+// x, y, w — height is derived from each image's natural aspect ratio
+const data = [
+  // cluster 1 — top left
+  { x: 55, y: 40, w: 190 },
+  { x: 215, y: 330, w: 220 },
+  { x: 400, y: 50, w: 245 },
+  { x: 530, y: 320, w: 175 },
+  // cluster 2 — top right
+  { x: 690, y: 110, w: 265 },
+  { x: 880, y: 320, w: 210 },
+  { x: 1050, y: 65, w: 195 },
+  // cluster 3 — center
+  { x: 65, y: 620, w: 210 },
+  { x: 295, y: 700, w: 240 },
+  { x: 510, y: 630, w: 225 },
+  // cluster 4 — lower right
+  { x: 780, y: 700, w: 270 },
+  { x: 970, y: 770, w: 225 },
+  { x: 1140, y: 630, w: 195 },
+];
+
+function setRvw() {
+  document.documentElement.style.setProperty(
+    '--rvw',
+    `${document.documentElement.clientWidth / 100}px`
+  );
+}
+
+setRvw();
+window.addEventListener('resize', setRvw);
+
+initPageTransitions();
+playEnterTransition();
+
+initGlitchText(document.querySelector('.cover__persona'), [
+  'photographer',
+  'software developer',
+  'entrepreneur',
+  'traveler',
+  'student',
+  'computer scientist',
+  'tech enthusiast',
+]);
+
+window.addEventListener('load', () => {
+  new InfiniteGrid({
+    el: document.querySelector('#images'),
+    sources,
+    data,
+    originalSize: { w: 1522, h: 1238 },
+  });
+});

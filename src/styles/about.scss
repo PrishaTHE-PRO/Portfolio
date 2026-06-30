@@ -1,0 +1,72 @@
+@import './util';
+@import './transitions';
+
+html.about-page {
+  overflow: auto;
+  font-size: 16px;
+}
+
+body.about-page {
+  min-height: 100vh;
+  font-family: $font-mono;
+  font-size: 14px;
+  line-height: 1.6;
+  color: $black;
+  background: $white;
+}
+
+.about {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+
+.about__title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 8vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0 0 32px;
+}
+
+.about__lead {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 40px;
+  max-width: 52ch;
+}
+
+.about__section {
+  margin-bottom: 48px;
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+
+  p {
+    margin: 0 0 12px;
+    max-width: 52ch;
+  }
+}
+
+.about__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+
+  a {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prisha Agarwalla</title>
+  <meta name="description" content="Portfolio of Prisha Agarwalla">
+  <script>
+    if (sessionStorage.getItem('page-transition') === 'enter-home') {
+      document.documentElement.classList.add('page-transition-pending');
+    }
+  </script>
+  <style>
+    .page-transition{position:fixed;inset:0;z-index:100;background:#fff;transform:scaleY(0);transform-origin:bottom center;pointer-events:none}
+    html.page-transition-pending .page-transition{transform:scaleY(1)}
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-transition" aria-hidden="true"></div>
+  <main id="main">
+    <section id="hero">
+      <div id="images"></div>
+    </section>
+    <div class="cover">
+      <div class="cover__content">
+        <p class="cover__persona" aria-live="polite">
+          <span class="cover__persona-text" data-glitch-text>photographer</span>
+        </p>
+        <h1 class="cover__title">Prisha Agarwalla</h1>
+        <a href="about.html" class="page-link page-link--next" data-page-transition>About →</a>
+      </div>
+    </div>
+    <p class="scroll-hint" id="scroll-hint">
+      <span class="scroll-hint__icon" aria-hidden="true">↖↘</span>
+      scroll & drag — it's infinite
+    </p>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
