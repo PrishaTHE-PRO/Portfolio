@@ -1,4 +1,4 @@
-# Prisha Agarwalla — Portfolio
+# Prisha Agarwalla (Portfolio)
 
 Personal portfolio with an infinite draggable photo grid, glitching personality tagline, and an About page.
 
