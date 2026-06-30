@@ -25,7 +25,3 @@ npm run preview
 - `public/img/` — photos for the grid
 - `src/js/main.js` — grid layout & image config
 - `src/styles/` — styles
-
-## Credits
-
-Infinite grid adapted from [JorgeCapillo/infinite-layers-grid](https://github.com/JorgeCapillo/infinite-layers-grid) (MIT).
