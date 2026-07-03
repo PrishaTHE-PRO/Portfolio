@@ -4,8 +4,8 @@ export function initProximityGrid(stage) {
   if (!stage) return;
 
   const cards = gsap.utils.toArray('.about-tool__card', stage);
-  const radius = 200;
-  const maxScale = 2.5;
+  const radius = 140;
+  const maxScale = 1.75;
   const dur = 0.35;
 
   stage.addEventListener('mousemove', (e) => {
