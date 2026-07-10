@@ -23,12 +23,14 @@
   <a href="index.html" class="page-link page-link--back" data-page-transition>← Home</a>
 
   <main class="about">
-    <h1 class="about__title">About</h1>
-    <p class="about__lead">
-      Hi, I'm Prisha — I design and build things on the web. This is my little corner of the internet.
-    </p>
+    <header class="about__intro">
+      <h1 class="about__title">About</h1>
+      <p class="about__lead">
+        Hi, I'm Prisha — I design and build things on the web. This is my little corner of the internet.
+      </p>
+    </header>
 
-    <section class="about__section">
+    <section class="about__section about__section--contact">
       <h2>Contact</h2>
       <div class="about__links">
         <a href="mailto:hello@prisha.dev">hello@prisha.dev</a>
@@ -37,13 +39,23 @@
       </div>
     </section>
 
-    <section class="about__section">
-      <h2>Work</h2>
-      <p>More projects coming soon.</p>
+    <section class="about__section about-experience">
+      <h2 class="about__heading">Experience</h2>
+      <p class="about-experience__lead">Where I've built, learned, and shipped things.</p>
+      <div class="about-experience__timeline" id="experienceTimeline"></div>
+    </section>
+
+    <section class="about__section about-projects">
+      <h2 class="about__heading">Projects</h2>
+      <p class="about-projects__lead">Selected work — swipe or scroll to explore.</p>
+      <div class="about-projects__scroll">
+        <div class="about-projects__track" id="projectsList"></div>
+        <span class="about-projects__hint" aria-hidden="true">scroll →</span>
+      </div>
     </section>
 
     <section class="about__section about-tool">
-      <h2>Stack</h2>
+      <h2 class="about__heading">Stack</h2>
       <p class="about-tool__lead">Languages, frameworks, and tools I build with.</p>
       <div class="about-tool__stage" id="proximityStage"></div>
     </section>
