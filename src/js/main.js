@@ -37,23 +37,22 @@ const sources = [
 
 // x, y, w — height is derived from each image's natural aspect ratio
 const data = [
-  // cluster 1 — top left
-  { x: 55, y: 40, w: 190 },
-  { x: 215, y: 330, w: 220 },
-  { x: 400, y: 50, w: 245 },
-  { x: 530, y: 320, w: 175 },
-  // cluster 2 — top right
-  { x: 690, y: 110, w: 265 },
-  { x: 880, y: 320, w: 210 },
-  { x: 1050, y: 65, w: 195 },
-  // cluster 3 — center
-  { x: 65, y: 620, w: 210 },
-  { x: 295, y: 700, w: 240 },
-  { x: 510, y: 630, w: 225 },
-  // cluster 4 — lower right
-  { x: 780, y: 700, w: 270 },
-  { x: 970, y: 770, w: 225 },
-  { x: 1140, y: 630, w: 195 },
+  // top band
+  { x: 20, y: 92, w: 220 },
+  { x: 220, y: 18, w: 285 },
+  { x: 520, y: 118, w: 245 },
+  { x: 870, y: 26, w: 250 },
+  { x: 1135, y: 125, w: 290 },
+  // side accents
+  { x: 78, y: 405, w: 250 },
+  { x: 1188, y: 390, w: 260 },
+  // bottom band
+  { x: 5, y: 730, w: 305 },
+  { x: 330, y: 835, w: 245 },
+  { x: 620, y: 715, w: 270 },
+  { x: 855, y: 825, w: 315 },
+  { x: 1095, y: 690, w: 275 },
+  { x: 1390, y: 785, w: 230 },
 ];
 
 function setRvw() {

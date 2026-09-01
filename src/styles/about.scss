@@ -1,9 +1,23 @@
 @import './util';
+@import './nav';
 @import './transitions';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 
 html.about-page {
   overflow: auto;
   font-size: 16px;
+  background: $outside;
+  overscroll-behavior-y: none;
 }
 
 body.about-page {
@@ -12,41 +26,71 @@ body.about-page {
   font-size: 14px;
   line-height: 1.6;
   color: $black;
-  background: $white;
+  background: $outside;
+  overscroll-behavior-y: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .about {
-  max-width: min(1120px, calc(100vw - 48px));
-  margin: 0 auto;
-  padding: 120px 0 140px;
+  max-width: none;
+  margin: 142px 8px 8px;
+  padding: 58px clamp(18px, 4vw, 64px) 120px;
+  background: $white;
+  border: 1px solid $line;
+  border-top: 0;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 16px 40px rgba(32, 29, 27, 0.1);
+
+  @media (max-width: 760px) {
+    margin: 166px 6px 8px;
+    padding-top: 64px;
+    border-radius: 0 0 24px 24px;
+  }
 }
 
 .about__intro {
-  padding-bottom: 96px;
-  margin-bottom: 96px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.6fr);
+  gap: 44px;
+  align-items: end;
+  max-width: 1180px;
+  margin: 0 auto 90px;
+  padding-bottom: 70px;
+  border-bottom: 1px solid rgba(32, 29, 27, 0.2);
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 56px;
+    padding-bottom: 46px;
+  }
 }
 
 .about__title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(36px, 8vw, 64px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin: 0 0 32px;
+  font-family: $font-display;
+  font-size: clamp(76px, 15vw, 180px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.78;
+  margin: 0;
 }
 
 .about__lead {
-  font-size: 15px;
+  font-size: clamp(15px, 1.25vw, 18px);
   line-height: 1.7;
   margin: 0;
   max-width: 60ch;
 }
 
 .about__section {
+  max-width: 1180px;
   padding: 96px 0;
-  margin: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+  border-top: 1px solid rgba(32, 29, 27, 0.16);
 
   &:first-of-type {
     border-top: none;
@@ -54,10 +98,10 @@ body.about-page {
   }
 
   h2 {
-    font-family: 'Syne', sans-serif;
+    font-family: $font-condensed;
     font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     margin: 0 0 16px;
   }
@@ -89,18 +133,44 @@ body.about-page {
 }
 
 .about__heading {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(48px, 11vw, 88px);
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  font-family: $font-display;
+  font-size: clamp(58px, 10vw, 128px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.82;
   text-transform: none;
   margin: 0 0 20px;
 }
 
+.about-duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 clamp(48px, 5vw, 88px);
+  align-items: start;
+
+  // Both column leads share one rhythm so the timeline and the tool grid
+  // start on the same line. Needs .about-duo to outweigh `.about__section p`.
+  .about-experience__lead,
+  .about-tool__lead {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 0 40px;
+    max-width: 46ch;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  @media (max-width: 960px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 80px 0;
+  }
+}
+
+.about-duo__col {
+  min-width: 0;
+}
+
 .about-experience {
-  width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .about-experience__lead {
@@ -114,8 +184,8 @@ body.about-page {
 .about-experience__timeline {
   position: relative;
   text-align: left;
-  max-width: 680px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding-left: 32px;
 }
 
@@ -174,10 +244,10 @@ body.about-page {
 }
 
 .about-experience__role {
-  font-family: 'Syne', sans-serif;
+  font-family: $font-condensed;
   font-size: clamp(18px, 2.5vw, 22px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  letter-spacing: 0;
   line-height: 1.15;
   margin: 0 0 4px;
 }
@@ -199,29 +269,40 @@ body.about-page {
 
 .about-projects {
   width: 100%;
-  text-align: center;
+  max-width: none;
+  text-align: left;
+
+  .about__heading {
+    font-size: clamp(41px, 7vw, 90px);
+  }
 }
 
 .about-projects__lead {
-  font-size: 15px;
-  line-height: 1.7;
-  margin: 0 auto 32px;
-  max-width: 60ch;
-  color: rgba(0, 0, 0, 0.75);
+  font-family: $font-mono;
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 36px;
+  max-width: none;
+  color: rgba(32, 29, 27, 0.72);
 }
 
 .about-projects__scroll {
   position: relative;
-  padding-bottom: 28px;
+  width: calc(100vw - 16px);
+  margin-left: calc(50% - 50vw + 8px);
+  padding-bottom: 32px;
+  overflow: hidden;
 }
 
 .about-projects__track {
   display: flex;
-  gap: 16px;
+  gap: clamp(18px, 2.2vw, 34px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: calc((100% - 32px) / 6);
-  padding: 4px 0 16px;
+  scroll-padding-inline: clamp(18px, 2.6vw, 46px);
+  padding: 0 clamp(18px, 2.6vw, 46px) 18px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
@@ -248,77 +329,107 @@ body.about-page {
   pointer-events: none;
 }
 
-.about-projects__card {
-  flex: 0 0 calc((100% - 32px) / 3);
-  scroll-snap-align: center;
+.about-projects__item {
+  flex: 0 0 clamp(300px, 33vw, 470px);
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background: $white;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   text-align: left;
 
   @media (max-width: 768px) {
-    flex: 0 0 calc((100% - 16px) / 2);
+    flex-basis: 72vw;
   }
 
   @media (max-width: 520px) {
-    flex: 0 0 88%;
+    flex-basis: 84vw;
   }
+}
+
+.about-projects__media {
+  display: grid;
+  // minmax(0, ...) not 1fr: a portrait photo's automatic minimum size would
+  // otherwise push the row past the ratio and make that one card tall again.
+  grid-template-rows: minmax(0, 1fr) 76px;
+  min-height: 0;
+  // Landscape frame: the project shots are wide UI captures, and a portrait
+  // box left them as thumbnails in a field of dead space. Ratio (not
+  // min-height) also keeps every card's link bar on the same line.
+  aspect-ratio: 16 / 13;
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .about-projects__image {
   width: 100%;
-  aspect-ratio: 5 / 3;
+  height: 100%;
+  min-height: 0;
   object-fit: cover;
   display: block;
-  border-radius: 4px;
+  border-radius: 0;
   background: rgba(0, 0, 0, 0.03);
 }
 
-.about-projects__body {
+.about-projects__links {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 2px;
+  min-width: 0;
+}
+
+.about-projects__github {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
-}
-
-.about-projects__title {
-  font-family: 'Syne', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin: 0;
-}
-
-.about-projects__summary {
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0;
-  color: rgba(0, 0, 0, 0.75);
-  flex: 1;
-}
-
-.about-projects__link {
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border: 0;
+  font-family: $font-mono;
+  font-size: 12px;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  width: fit-content;
-  margin-top: auto;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $black;
+  background: rgba(244, 239, 228, 0.92);
+  transition: background 0.2s ease, color 0.2s ease;
 
   &:hover {
-    opacity: 0.6;
+    color: $white;
+    background: $black;
   }
 }
 
+.about-projects__meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  align-items: start;
+}
+
+.about-projects__title {
+  font-family: $font-condensed;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.about-projects__summary {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+  max-width: none;
+  color: rgba(32, 29, 27, 0.62);
+  text-align: left;
+}
+
 .about-tool {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .about-tool__lead {
@@ -345,10 +456,10 @@ body.about-page {
 }
 
 .about-tool__category-title {
-  font-family: 'Syne', sans-serif;
+  font-family: $font-condensed;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.45);
   margin: 0 0 12px;
@@ -403,8 +514,8 @@ body.about-page {
 }
 
 .about-tool__card-title {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: $font-condensed;
+  font-weight: 600;
   font-size: 9px;
   color: $black;
   text-align: center;
