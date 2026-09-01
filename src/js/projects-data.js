@@ -1,39 +1,40 @@
+import { asset } from './asset';
 export const projects = [
   {
     title: 'Overlap',
     summary: 'Browser-only scheduling tool that OCRs course grids and computes shared availability.',
-    image: '/img/overlap.png',
+    image: 'img/overlap.png',
     github: 'https://github.com/PrishaTHE-PRO/Overlap',
     demo: 'https://prishathe-pro.github.io/Overlap/',
   },
   {
     title: 'VitalLens',
     summary: 'Turns lab reports into clear health insights, helping you understand biomarkers and track trends over time.',
-    image: '/img/vitallens.png',
+    image: 'img/vitallens.png',
     github: 'https://github.com/PrishaTHE-PRO/VitalLens',
   },
   {
     title: 'Clarity',
     summary: 'Chrome extension that highlights the most important sentences on any page, powered by a random forest model.',
-    image: '/img/IMG_1592.JPG',
+    image: 'img/IMG_1592.JPG',
     github: 'https://github.com/PrishaTHE-PRO/Clarity',
   },
   {
     title: 'Link-Garden',
     summary: 'An AI bookmark manager that organizes links into a visual garden and generates insights from browsing behavior.',
-    image: '/img/link-garden.png',
+    image: 'img/link-garden.png',
     github: 'https://github.com/PrishaTHE-PRO/Link-Garden',
   },
   {
     title: 'LinkStash',
     summary: 'A macOS menu bar app that lets you instantly save and categorize links without leaving what you are doing.',
-    image: '/img/IMG_4434.JPG',
+    image: 'img/IMG_4434.JPG',
     github: 'https://github.com/PrishaTHE-PRO/LinkStash',
   },
   {
     title: 'LaunchPad',
     summary: 'A startup discovery dashboard that tracks emerging startups and IPOs, tailors resumes to jobs, and generates project ideas.',
-    image: '/img/IMG_8340.JPG',
+    image: 'img/IMG_8340.JPG',
     github: 'https://github.com/PrishaTHE-PRO/LaunchPad',
   },
 ];
@@ -46,7 +47,7 @@ export function renderProjects(container) {
       <div class="about-projects__media">
         <img
           class="about-projects__image"
-          src="${image}"
+          src="${asset(image)}"
           alt="${title} preview"
           loading="lazy"
         >

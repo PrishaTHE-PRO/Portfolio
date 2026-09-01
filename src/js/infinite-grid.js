@@ -1,3 +1,4 @@
+import { asset } from './asset';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 
@@ -137,7 +138,7 @@ export default class InfiniteGrid {
           wrapper.appendChild(itemImage);
 
           const img = new Image();
-          img.src = `/img/${base.src}`;
+          img.src = asset(`img/${base.src}`);
           itemImage.appendChild(img);
 
           if (base.caption) {

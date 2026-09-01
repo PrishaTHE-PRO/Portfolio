@@ -1,3 +1,4 @@
+import { asset } from './asset';
 export const toolCategories = [
   {
     title: 'Languages',
@@ -51,7 +52,7 @@ function renderCard({ name, icon }) {
   return `
     <div class="about-tool__card">
       <div class="about-tool__card-icon">
-        <img src="/img/${icon}" alt="${name}" loading="lazy">
+        <img src="${asset(`img/${icon}`)}" alt="${name}" loading="lazy">
       </div>
       <span class="about-tool__card-title">${name}</span>
     </div>
