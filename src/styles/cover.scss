@@ -2,7 +2,7 @@
 
 .cover {
   position: fixed;
-  inset: 142px 8px 8px;
+  inset: 161px 8px 8px;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
   pointer-events: none;
 
   @media (max-width: 760px) {
-    inset: 166px 8px 8px;
+    inset: 188px 8px 8px;
   }
 }
 

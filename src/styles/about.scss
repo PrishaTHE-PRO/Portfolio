@@ -37,7 +37,7 @@ a {
 
 .about {
   max-width: none;
-  margin: 142px 8px 8px;
+  margin: 161px 8px 8px;
   padding: 58px clamp(18px, 4vw, 64px) 120px;
   background: $white;
   border: 1px solid $line;
@@ -46,7 +46,7 @@ a {
   box-shadow: 0 16px 40px rgba(32, 29, 27, 0.1);
 
   @media (max-width: 760px) {
-    margin: 166px 6px 8px;
+    margin: 188px 6px 8px;
     padding-top: 64px;
     border-radius: 0 0 24px 24px;
   }
