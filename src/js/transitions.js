@@ -69,7 +69,7 @@ export function playEnterTransition() {
       { y: 0, opacity: 1, duration: 0.5, stagger: 0.07, ease: 'power2.out' },
       0.12
     ).fromTo(
-      '.page-link--back',
+      '.site-nav',
       { opacity: 0 },
       { opacity: 1, duration: 0.35, ease: 'power2.out' },
       0.2
@@ -83,7 +83,7 @@ export function playEnterTransition() {
       { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' },
       0.12
     ).fromTo(
-      '.scroll-hint',
+      '.site-nav, .scroll-hint',
       { opacity: 0 },
       { opacity: 1, duration: 0.35, ease: 'power2.out' },
       0.2

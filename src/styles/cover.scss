@@ -2,12 +2,16 @@
 
 .cover {
   position: fixed;
-  inset: 0;
+  inset: 142px 8px 8px;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
+
+  @media (max-width: 760px) {
+    inset: 166px 8px 8px;
+  }
 }
 
 .cover__content {
@@ -15,6 +19,8 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  width: 100%;
+  padding: 0 clamp(18px, 3vw, 42px);
   transform: translateY(-2vh);
   pointer-events: none;
 }
@@ -24,10 +30,10 @@
   font-family: $font-mono;
   font-size: clamp(16px, 2.25vw, 24px);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.92);
-  -webkit-text-stroke: 0.75px rgba(255, 255, 255, 0.95);
+  color: $black;
+  -webkit-text-stroke: 0.45px rgba(238, 232, 220, 0.72);
   paint-order: stroke fill;
 }
 
@@ -87,35 +93,43 @@
 }
 
 .cover__title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(40px, 7.5vw, 96px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  max-width: none;
+  font-family: $font-display;
+  font-size: clamp(58px, 9vw, 132px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.82;
   color: $black;
   text-align: center;
+  white-space: nowrap;
   margin: 0;
-  padding: 0 24px;
-  -webkit-text-stroke: 1.5px $white;
+  padding: 0;
+  -webkit-text-stroke: 1.8px #fff;
   paint-order: stroke fill;
   text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.12),
-    0 4px 20px rgba(0, 0, 0, 0.08);
+    0 1px 0 rgba(238, 232, 220, 0.75),
+    0 8px 22px rgba(0, 0, 0, 0.12);
+
+  @media (max-width: 760px) {
+    font-size: clamp(38px, 11vw, 52px);
+  }
 }
 
 .cover__content .page-link--next {
   pointer-events: auto;
   position: static;
-  margin-top: 30px;
-  font-size: 15px;
-  padding: 16px 28px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1.5px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 28px;
+  font-size: 12px;
+  padding: 14px 22px;
+  background: rgba(244, 239, 228, 0.94);
+  border: 1px solid $line;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(32, 29, 27, 0.14);
   animation: about-pulse 2.8s ease-in-out infinite;
 
   &:hover {
-    transform: translateY(-2px);
+    color: $white;
+    background: $black;
     animation: none;
   }
 }

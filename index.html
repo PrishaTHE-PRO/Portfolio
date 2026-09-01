@@ -11,15 +11,32 @@
     }
   </script>
   <style>
-    .page-transition{position:fixed;inset:0;z-index:100;background:#fff;transform:scaleY(0);transform-origin:bottom center;pointer-events:none}
+    .page-transition{position:fixed;inset:0;z-index:100;background:#eee8dc;transform:scaleY(0);transform-origin:bottom center;pointer-events:none}
     html.page-transition-pending .page-transition{transform:scaleY(1)}
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Oswald:wght@500;600;700&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="page-transition" aria-hidden="true"></div>
+  <header class="site-nav" aria-label="Primary navigation">
+    <div class="site-nav__primary">
+      <a href="index.html" class="site-nav__item" data-page-transition>Work</a>
+      <a href="about.html" class="site-nav__item" data-page-transition>About</a>
+      <a href="index.html" class="site-nav__brand" data-page-transition>Portfolio</a>
+      <a href="mailto:prishaagarwalla50@gmail.com" class="site-nav__item">Contact</a>
+      <span class="site-nav__item site-nav__item--muted" aria-hidden="true">Search</span>
+    </div>
+    <nav class="site-nav__secondary" aria-label="Portfolio categories">
+      <span>Photography</span>
+      <span>Software</span>
+      <span>Projects</span>
+      <span>Experience</span>
+      <span>Stack</span>
+      <span>Travel</span>
+    </nav>
+  </header>
   <main id="main">
     <section id="hero">
       <div id="images"></div>

@@ -11,16 +11,32 @@
     }
   </script>
   <style>
-    .page-transition{position:fixed;inset:0;z-index:100;background:#fff;transform:scaleY(0);transform-origin:bottom center;pointer-events:none}
+    .page-transition{position:fixed;inset:0;z-index:100;background:#eee8dc;transform:scaleY(0);transform-origin:bottom center;pointer-events:none}
     html.page-transition-pending .page-transition{transform:scaleY(1)}
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Oswald:wght@500;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="about-page">
   <div class="page-transition" aria-hidden="true"></div>
-  <a href="index.html" class="page-link page-link--back" data-page-transition>← Home</a>
+  <header class="site-nav" aria-label="Primary navigation">
+    <div class="site-nav__primary">
+      <a href="index.html" class="site-nav__item" data-page-transition>Work</a>
+      <a href="about.html" class="site-nav__item" data-page-transition>About</a>
+      <a href="index.html" class="site-nav__brand" data-page-transition>Portfolio</a>
+      <a href="mailto:prishaagarwalla50@gmail.com" class="site-nav__item">Contact</a>
+      <span class="site-nav__item site-nav__item--muted" aria-hidden="true">Search</span>
+    </div>
+    <nav class="site-nav__secondary" aria-label="Portfolio categories">
+      <span>Photography</span>
+      <span>Software</span>
+      <span>Projects</span>
+      <span>Experience</span>
+      <span>Stack</span>
+      <span>Travel</span>
+    </nav>
+  </header>
 
   <main class="about">
     <header class="about__intro">
@@ -33,31 +49,33 @@
     <section class="about__section about__section--contact">
       <h2>Contact</h2>
       <div class="about__links">
-        <a href="mailto:hello@prisha.dev">hello@prisha.dev</a>
-        <a href="https://github.com/prishaagarwalla" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/prishaagarwalla" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:prishaagarwalla50@gmail.com">prishaagarwalla50@gmail.com</a>
+        <a href="https://github.com/PrishaTHE-PRO" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/prisha-agarwalla-126a15285/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </section>
 
-    <section class="about__section about-experience">
-      <h2 class="about__heading">Experience</h2>
-      <p class="about-experience__lead">Where I've built, learned, and shipped things.</p>
-      <div class="about-experience__timeline" id="experienceTimeline"></div>
+    <section class="about__section about-duo">
+      <section class="about-duo__col about-experience">
+        <h2 class="about__heading">Experience</h2>
+        <p class="about-experience__lead">Where I've built, learned, and shipped things.</p>
+        <div class="about-experience__timeline" id="experienceTimeline"></div>
+      </section>
+
+      <section class="about-duo__col about-tool">
+        <h2 class="about__heading">Stack</h2>
+        <p class="about-tool__lead">Languages, frameworks, and tools I build with.</p>
+        <div class="about-tool__stage" id="proximityStage"></div>
+      </section>
     </section>
 
     <section class="about__section about-projects">
       <h2 class="about__heading">Projects</h2>
-      <p class="about-projects__lead">Selected work — swipe or scroll to explore.</p>
+      <p class="about-projects__lead">Project collection</p>
       <div class="about-projects__scroll">
         <div class="about-projects__track" id="projectsList"></div>
-        <span class="about-projects__hint" aria-hidden="true">scroll →</span>
+        <span class="about-projects__hint" aria-hidden="true">scroll &rarr;</span>
       </div>
-    </section>
-
-    <section class="about__section about-tool">
-      <h2 class="about__heading">Stack</h2>
-      <p class="about-tool__lead">Languages, frameworks, and tools I build with.</p>
-      <div class="about-tool__stage" id="proximityStage"></div>
     </section>
   </main>
 

@@ -1,69 +1,74 @@
 export const projects = [
   {
-    title: 'Aura',
-    summary: 'A mood-based music recommender that learns your taste over time. Built with React and a Python backend.',
-    images: ['https://picsum.photos/seed/aura-portfolio/800/480'],
-    github: 'https://github.com/prishaagarwalla',
+    title: 'Overlap',
+    summary: 'Browser-only scheduling tool that OCRs course grids and computes shared availability.',
+    image: '/img/overlap.png',
+    github: 'https://github.com/PrishaTHE-PRO/Overlap',
+    demo: 'https://prishathe-pro.github.io/Overlap/',
   },
   {
-    title: 'Campus Connect',
-    summary: 'Real-time campus event board with RSVP tracking and push notifications for student organizations.',
-    images: [
-      'https://picsum.photos/seed/campus-1/800/480',
-      'https://picsum.photos/seed/campus-2/800/480',
-    ],
-    github: 'https://github.com/prishaagarwalla',
+    title: 'VitalLens',
+    summary: 'Turns lab reports into clear health insights, helping you understand biomarkers and track trends over time.',
+    image: '/img/vitallens.png',
+    github: 'https://github.com/PrishaTHE-PRO/VitalLens',
   },
   {
-    title: 'Lens Lab',
-    summary: 'Photo batch editor with custom presets and metadata tagging. Inspired by my photography workflow.',
-    images: ['https://picsum.photos/seed/lenslab/800/480'],
-    github: 'https://github.com/prishaagarwalla',
+    title: 'Clarity',
+    summary: 'Chrome extension that highlights the most important sentences on any page, powered by a random forest model.',
+    image: '/img/IMG_1592.JPG',
+    github: 'https://github.com/PrishaTHE-PRO/Clarity',
   },
   {
-    title: 'Study Sprint',
-    summary: 'Pomodoro timer with session analytics and focus streaks. SwiftUI app with local Core Data storage.',
-    images: ['https://picsum.photos/seed/studysprint/800/480'],
-    github: 'https://github.com/prishaagarwalla',
+    title: 'Link-Garden',
+    summary: 'An AI bookmark manager that organizes links into a visual garden and generates insights from browsing behavior.',
+    image: '/img/link-garden.png',
+    github: 'https://github.com/PrishaTHE-PRO/Link-Garden',
   },
   {
-    title: 'Voice Notes AI',
-    summary: 'Record, transcribe, and summarize voice memos using Deepgram and Claude. Deployed on Supabase Edge Functions.',
-    images: [
-      'https://picsum.photos/seed/voicenotes-1/800/480',
-      'https://picsum.photos/seed/voicenotes-2/800/480',
-    ],
-    github: 'https://github.com/prishaagarwalla',
+    title: 'LinkStash',
+    summary: 'A macOS menu bar app that lets you instantly save and categorize links without leaving what you are doing.',
+    image: '/img/IMG_4434.JPG',
+    github: 'https://github.com/PrishaTHE-PRO/LinkStash',
   },
   {
-    title: 'Portfolio',
-    summary: 'This site — infinite photo grid, glitching tagline, and a proximity-based stack showcase. Vite + GSAP.',
-    images: ['https://picsum.photos/seed/portfolio-site/800/480'],
-    github: 'https://github.com/PrishaTHE-PRO/Portfolio',
+    title: 'LaunchPad',
+    summary: 'A startup discovery dashboard that tracks emerging startups and IPOs, tailors resumes to jobs, and generates project ideas.',
+    image: '/img/IMG_8340.JPG',
+    github: 'https://github.com/PrishaTHE-PRO/LaunchPad',
   },
 ];
 
 export function renderProjects(container) {
   if (!container) return;
 
-  container.innerHTML = projects.map(({ title, summary, images, github }) => `
-    <article class="about-projects__card">
-      <img
-        class="about-projects__image"
-        src="${images[0]}"
-        alt="${title} preview"
-        loading="lazy"
-      >
-      <div class="about-projects__body">
+  container.innerHTML = projects.map(({ title, summary, image, github, demo }) => `
+    <article class="about-projects__item">
+      <div class="about-projects__media">
+        <img
+          class="about-projects__image"
+          src="${image}"
+          alt="${title} preview"
+          loading="lazy"
+        >
+        <div class="about-projects__links">
+          <a
+            class="about-projects__github"
+            href="${github}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >GitHub →</a>
+          ${demo ? `<a
+            class="about-projects__github"
+            href="${demo}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Live →</a>` : ''}
+        </div>
+      </div>
+      <div class="about-projects__meta">
         <h3 class="about-projects__title">${title}</h3>
         <p class="about-projects__summary">${summary}</p>
-        <a
-          class="about-projects__link"
-          href="${github}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >GitHub →</a>
       </div>
-    </article>
+   </article>
   `).join('');
 }
