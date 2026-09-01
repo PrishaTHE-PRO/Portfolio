@@ -34,7 +34,7 @@ export const projects = [
   {
     title: 'LaunchPad',
     summary: 'A startup discovery dashboard that tracks emerging startups and IPOs, tailors resumes to jobs, and generates project ideas.',
-    image: 'img/IMG_8340.JPG',
+    image: 'img/launchpad.png',
     github: 'https://github.com/PrishaTHE-PRO/LaunchPad',
   },
 ];
