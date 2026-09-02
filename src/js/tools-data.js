@@ -5,6 +5,8 @@ export const toolCategories = [
     tools: [
       { name: 'Swift', icon: 'swift.svg' },
       { name: 'Python', icon: 'python.svg' },
+      { name: 'Java', icon: 'java.svg' },
+      { name: 'HTML', icon: 'html5.svg' },
       { name: 'CSS', icon: 'css.svg' },
     ],
   },
