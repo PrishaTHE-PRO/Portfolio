@@ -32,6 +32,12 @@ export const projects = [
     github: 'https://github.com/PrishaTHE-PRO/LinkStash',
   },
   {
+    title: 'BluPrint',
+    summary: 'An AI-powered interior design platform that transforms room dimensions and inspiration images into personalized 2D layouts with style-matched furniture recommendations.',
+    image: 'img/bluprint.png',
+    github: 'https://github.com/PrishaTHE-PRO/BluPrint',
+  },
+  {
     title: 'LaunchPad',
     summary: 'A startup discovery dashboard that tracks emerging startups and IPOs, tailors resumes to jobs, and generates project ideas.',
     image: 'img/launchpad.png',
