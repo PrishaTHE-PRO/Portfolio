@@ -152,7 +152,7 @@ export default class InfiniteGrid {
           wrapper.appendChild(itemImage);
 
           const img = new Image();
-          img.src = asset(`img/${base.src}`);
+          img.src = asset(`photographs/${base.src}`);
           itemImage.appendChild(img);
 
           if (base.caption) {

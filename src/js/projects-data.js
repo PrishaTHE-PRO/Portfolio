@@ -35,7 +35,7 @@ export const projects = [
   {
     title: 'LinkStash',
     summary: 'A macOS menu bar app that lets you instantly save and categorize links without leaving what you are doing.',
-    image: 'img/IMG_4434.JPG',
+    image: 'photographs/IMG_4434.JPG',
     github: 'https://github.com/PrishaTHE-PRO/LinkStash',
   },
 ];
