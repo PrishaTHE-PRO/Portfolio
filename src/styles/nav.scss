@@ -113,35 +113,29 @@
   }
 
   .site-nav__primary {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     min-height: 0;
   }
 
   .site-nav__brand {
     grid-column: 1 / -1;
     grid-row: 1;
-    min-height: 74px;
+    min-height: 62px;
     border-right: none;
     border-bottom: 1px solid $line;
-    font-size: clamp(34px, 9.5vw, 48px);
+    font-size: clamp(30px, 8.5vw, 42px);
   }
 
   .site-nav__item {
-    min-height: 56px;
-    padding: 12px 10px;
-    font-size: 12px;
-    letter-spacing: 0.2em;
+    min-height: 42px;
+    padding: 10px 3px;
+    font-size: 9px;
+    letter-spacing: 0.06em;
     border-top: 0;
 
-    // Right-hand column of the 2x2 block: About and Photography.
-    &:nth-child(2),
+    // Photography closes the single row.
     &:nth-child(5) {
       border-right: none;
-    }
-
-    &:nth-child(4),
-    &:nth-child(5) {
-      border-top: 1px solid $line;
     }
   }
 

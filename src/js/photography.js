@@ -55,7 +55,8 @@ function openPile(index) {
   trackEl.innerHTML = pile.photos.map((photo) => `
     <figure class="photo-spread__item">
       <img src="${asset(`photographs/${photo.src}`)}" alt="${photo.title}"
-           width="${photo.w}" height="${photo.h}">
+           width="${photo.w}" height="${photo.h}"
+           loading="lazy" decoding="async">
     </figure>`).join('');
 
   trackEl.scrollLeft = 0;
