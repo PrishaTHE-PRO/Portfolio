@@ -20,19 +20,19 @@ const captions = [
 ];
 
 const sources = [
-  { src: 'IMG_0274.JPG', naturalW: 1078, naturalH: 1503, caption: captions[0] },
-  { src: 'IMG_0481.JPG', naturalW: 1225, naturalH: 1791, caption: captions[1] },
-  { src: 'IMG_0972.JPG', naturalW: 1741, naturalH: 1280, caption: captions[2] },
-  { src: 'IMG_1066.JPG', naturalW: 1883, naturalH: 1255, caption: captions[3] },
-  { src: 'IMG_1590.JPG', naturalW: 1280, naturalH: 1744, caption: captions[4] },
-  { src: 'IMG_1592.JPG', naturalW: 1120, naturalH: 1624, caption: captions[5] },
-  { src: 'IMG_2699.JPG', naturalW: 1565, naturalH: 2128, caption: captions[6] },
-  { src: 'IMG_2782.jpg', naturalW: 1170, naturalH: 882, caption: captions[7] },
-  { src: 'IMG_3572.JPG', naturalW: 2448, naturalH: 3264, caption: captions[8] },
-  { src: 'IMG_4434.JPG', naturalW: 1638, naturalH: 2150, caption: captions[9] },
-  { src: 'IMG_7174.JPG', naturalW: 1920, naturalH: 1280, caption: captions[10] },
-  { src: 'IMG_8340.JPG', naturalW: 2377, naturalH: 3155, caption: captions[11] },
-  { src: 'IMG_9792.JPG', naturalW: 1125, naturalH: 1500, caption: captions[12] },
+  { src: 'IMG_0274.JPG', naturalW: 1147, naturalH: 1600, caption: captions[0] },
+  { src: 'IMG_0481.JPG', naturalW: 1094, naturalH: 1600, caption: captions[1] },
+  { src: 'IMG_0972.JPG', naturalW: 1600, naturalH: 1176, caption: captions[2] },
+  { src: 'IMG_1066.JPG', naturalW: 1600, naturalH: 1066, caption: captions[3] },
+  { src: 'IMG_1590.JPG', naturalW: 1174, naturalH: 1600, caption: captions[4] },
+  { src: 'IMG_1592.JPG', naturalW: 1103, naturalH: 1600, caption: captions[5] },
+  { src: 'IMG_2699.JPG', naturalW: 1176, naturalH: 1600, caption: captions[6] },
+  { src: 'IMG_2782.jpg', naturalW: 1600, naturalH: 1206, caption: captions[7] },
+  { src: 'IMG_3572.JPG', naturalW: 1200, naturalH: 1600, caption: captions[8] },
+  { src: 'IMG_4434.JPG', naturalW: 1219, naturalH: 1600, caption: captions[9] },
+  { src: 'IMG_7174.JPG', naturalW: 1600, naturalH: 1066, caption: captions[10] },
+  { src: 'IMG_8340.JPG', naturalW: 1205, naturalH: 1600, caption: captions[11] },
+  { src: 'IMG_9792.JPG', naturalW: 1200, naturalH: 1600, caption: captions[12] },
 ];
 
 // x, y, w — height is derived from each image's natural aspect ratio
