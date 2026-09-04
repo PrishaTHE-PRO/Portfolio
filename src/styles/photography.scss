@@ -49,7 +49,10 @@
   position: relative;
   display: block;
   aspect-ratio: 4 / 3;
-  margin-bottom: 18px;
+  // The fanned layers are rotated, so their corners hang well below the box.
+  // This clears them -- including the wider splay on hover -- so the pile
+  // title is never sitting under a photo.
+  margin-bottom: 68px;
 }
 
 .photo-pile__layer {
