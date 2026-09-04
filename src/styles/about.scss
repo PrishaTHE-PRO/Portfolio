@@ -187,6 +187,9 @@ a {
   max-width: none;
   margin: 0;
   padding-left: 32px;
+  // Items enter from x:28, so before their trigger fires they sit 28px to the
+  // right and gave the page a few px of sideways scroll on narrow screens.
+  overflow-x: clip;
 }
 
 .about-experience__line {
@@ -563,6 +566,15 @@ a {
   cursor: pointer;
   transform-origin: top center;
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1);
+
+  // Always drifting a little, as something hanging would. Offset each one so
+  // the row does not swing in lockstep.
+  --sway: 0.9deg;
+  animation: lanyard-sway 5.4s ease-in-out infinite;
+
+  &:nth-child(2) { animation-delay: -1.3s; animation-duration: 6.1s; }
+  &:nth-child(3) { animation-delay: -2.7s; animation-duration: 4.9s; }
+  &:nth-child(4) { animation-delay: -0.6s; animation-duration: 5.8s; }
 }
 
 // Two straps meeting at the badge clip.
@@ -640,14 +652,15 @@ a {
 
 // Hover sways the badge on its strap; the open one hangs forward and still.
 @keyframes lanyard-sway {
-  0%, 100% { transform: rotate(-2.2deg); }
-  50%      { transform: rotate(2.2deg); }
+  0%, 100% { transform: rotate(calc(var(--sway) * -1)); }
+  50%      { transform: rotate(var(--sway)); }
 }
 
 .lanyard:hover,
 .lanyard:focus-visible {
   outline: none;
-  animation: lanyard-sway 2.4s ease-in-out infinite;
+  --sway: 2.4deg;
+  animation-duration: 2.3s;
 
   .lanyard__badge {
     border-color: rgba(32, 29, 27, 0.75);
@@ -765,5 +778,36 @@ a {
   .lanyard:focus-visible {
     animation: none;
     transition: none;
+  }
+}
+
+// On phones the badges wrap to two rows, but each one is pulled up 31px to
+// hang off the rail -- which the wrapped row inherited, driving it straight
+// into the row above. Lay the rows out explicitly, and give the lower row a
+// rail of its own to hang from.
+@media (max-width: 700px) {
+  .about-involve__rail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+    gap: 74px clamp(10px, 4vw, 24px);
+  }
+
+  .lanyard {
+    width: 100%;
+    max-width: 158px;
+
+    &:nth-child(n + 3) {
+      margin-top: 0;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-top: 1px solid rgba(32, 29, 27, 0.28);
+      }
+    }
   }
 }
