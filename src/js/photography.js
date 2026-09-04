@@ -42,10 +42,32 @@ function renderPiles() {
 
 let lastFocused = null;
 
+// A close schedules teardown twice (transitionend, plus a timeout in case it
+// never fires). Reopening before either lands would otherwise let the stale
+// teardown empty the spread that just opened.
+let closeTimer = null;
+let onCloseEnd = null;
+
+function cancelPendingClose() {
+  if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+  if (onCloseEnd) { spreadEl.removeEventListener('transitionend', onCloseEnd); onCloseEnd = null; }
+}
+
+// Snapping fights a plain scrollLeft assignment, so switch it off for the
+// reset and hand it back straight after.
+function resetScroll() {
+  const snap = trackEl.style.scrollSnapType;
+  trackEl.style.scrollSnapType = 'none';
+  trackEl.scrollTo({ left: 0, behavior: 'instant' });
+  trackEl.scrollLeft = 0;
+  trackEl.style.scrollSnapType = snap || '';
+}
+
 function openPile(index) {
   const pile = piles[index];
   if (!pile) return;
 
+  cancelPendingClose();
   lastFocused = document.activeElement;
   titleEl.textContent = pile.title;
   countEl.textContent = `${pile.photos.length} photos — ${pile.blurb}`;
@@ -59,22 +81,40 @@ function openPile(index) {
            loading="lazy" decoding="async">
     </figure>`).join('');
 
-  trackEl.scrollLeft = 0;
+  // Reveal first: scrollLeft is a no-op on a display:none element, so
+  // resetting before this left a reopened pile wherever it was last scrolled.
   spreadEl.hidden = false;
-  // Next frame, so the opening transition has a state to animate from.
-  requestAnimationFrame(() => spreadEl.classList.add('is-open'));
+  resetScroll();
+
+  requestAnimationFrame(() => {
+    // Next frame, so the opening transition has a state to animate from --
+    // and so scroll snapping, which re-runs after layout, cannot carry the
+    // old offset over.
+    spreadEl.classList.add('is-open');
+    resetScroll();
+  });
+
   document.documentElement.classList.add('spread-open');
-  closeEl.focus();
+  // preventScroll: focusing the button would otherwise scroll it into view.
+  closeEl.focus({ preventScroll: true });
 }
 
 function closeSpread() {
   if (spreadEl.hidden) return;
+  cancelPendingClose();
   spreadEl.classList.remove('is-open');
   document.documentElement.classList.remove('spread-open');
-  const done = () => { spreadEl.hidden = true; trackEl.innerHTML = ''; };
-  spreadEl.addEventListener('transitionend', done, { once: true });
+
+  const done = () => {
+    cancelPendingClose();
+    spreadEl.hidden = true;
+    trackEl.innerHTML = '';
+    trackEl.scrollLeft = 0;
+  };
+  onCloseEnd = done;
+  spreadEl.addEventListener('transitionend', onCloseEnd);
   // Belt and braces: if the transition never fires, still close.
-  setTimeout(done, 400);
+  closeTimer = setTimeout(done, 400);
   if (lastFocused) lastFocused.focus();
 }
 
