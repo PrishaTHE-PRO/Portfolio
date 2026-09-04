@@ -35,6 +35,9 @@ export default class InfiniteGrid {
     this.onMouseMove  = this.onMouseMove.bind(this);
     this.onMouseDown  = this.onMouseDown.bind(this);
     this.onMouseUp    = this.onMouseUp.bind(this);
+    this.onTouchStart = this.onTouchStart.bind(this);
+    this.onTouchMove  = this.onTouchMove.bind(this);
+    this.onTouchEnd   = this.onTouchEnd.bind(this);
     this.render       = this.render.bind(this);
 
     window.addEventListener('resize', this.onResize);
@@ -42,6 +45,10 @@ export default class InfiniteGrid {
     window.addEventListener('mousemove', this.onMouseMove);
     this.$container.addEventListener('mousedown', this.onMouseDown);
     window.addEventListener('mouseup', this.onMouseUp);
+    this.$container.addEventListener('touchstart', this.onTouchStart, { passive: false });
+    window.addEventListener('touchmove', this.onTouchMove, { passive: false });
+    window.addEventListener('touchend', this.onTouchEnd);
+    window.addEventListener('touchcancel', this.onTouchEnd);
 
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -87,9 +94,16 @@ export default class InfiniteGrid {
     this.winW = window.innerWidth;
     this.winH = window.innerHeight;
 
+    // On a phone the tile would collapse to the viewport width, leaving each
+    // photo ~14% of a 390px screen -- proportionally the same as desktop, but
+    // physically too small to read. Oversizing the tile scales the whole
+    // pattern up; the wrap maths keys off tileSize, so it stays consistent.
+    const tileScale = this.winW < 760 ? 2 : 1;
+    const tileW = this.winW * tileScale;
+
     this.tileSize = {
-      w: this.winW,
-      h: (this.winW) * (this.originalSize.h / this.originalSize.w),
+      w: tileW,
+      h: tileW * (this.originalSize.h / this.originalSize.w),
     };
 
     this.scroll.current = { x: 0, y: 0 };
@@ -204,6 +218,34 @@ export default class InfiniteGrid {
     this.mouse.press.t = 0;
   }
 
+  onTouchStart(e) {
+    const t = e.touches[0];
+    if (!t) return;
+    this.isDragging = true;
+    document.documentElement.classList.add('dragging');
+    this.mouse.press.t = 1;
+    this.drag.startX = t.clientX;
+    this.drag.startY = t.clientY;
+    this.drag.scrollX = this.scroll.target.x;
+    this.drag.scrollY = this.scroll.target.y;
+  }
+
+  onTouchMove(e) {
+    if (!this.isDragging) return;
+    const t = e.touches[0];
+    if (!t) return;
+    // Claim the gesture, or the browser pans the page instead of the grid.
+    e.preventDefault();
+    this.scroll.target.x = this.drag.scrollX + (t.clientX - this.drag.startX);
+    this.scroll.target.y = this.drag.scrollY + (t.clientY - this.drag.startY);
+  }
+
+  onTouchEnd() {
+    this.isDragging = false;
+    document.documentElement.classList.remove('dragging');
+    this.mouse.press.t = 0;
+  }
+
   onMouseMove(e) {
     this.mouse.x.t = e.clientX / this.winW;
     this.mouse.y.t = e.clientY / this.winH;
@@ -267,6 +309,10 @@ export default class InfiniteGrid {
     window.removeEventListener('mousemove', this.onMouseMove);
     this.$container.removeEventListener('mousedown', this.onMouseDown);
     window.removeEventListener('mouseup', this.onMouseUp);
+    this.$container.removeEventListener('touchstart', this.onTouchStart);
+    window.removeEventListener('touchmove', this.onTouchMove);
+    window.removeEventListener('touchend', this.onTouchEnd);
+    window.removeEventListener('touchcancel', this.onTouchEnd);
     this.observer.disconnect();
   }
 }
