@@ -50,16 +50,12 @@ function openPile(index) {
   titleEl.textContent = pile.title;
   countEl.textContent = `${pile.photos.length} photos — ${pile.blurb}`;
 
+  // No captions under the photos -- the titles stay in the data and carry
+  // through to alt text, but the spread shows the pictures on their own.
   trackEl.innerHTML = pile.photos.map((photo) => `
     <figure class="photo-spread__item">
       <img src="${asset(`photographs/${photo.src}`)}" alt="${photo.title}"
            width="${photo.w}" height="${photo.h}">
-      <figcaption>
-        <span class="photo-spread__name">${photo.title}</span>
-        ${photo.place ? `<span>${photo.place}</span>` : ''}
-        ${photo.note ? `<span>${photo.note}</span>` : ''}
-        <span class="photo-spread__year">${photo.year}</span>
-      </figcaption>
     </figure>`).join('');
 
   trackEl.scrollLeft = 0;

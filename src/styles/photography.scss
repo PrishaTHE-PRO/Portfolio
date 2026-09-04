@@ -246,30 +246,6 @@ html.spread-open body {
     display: block;
   }
 
-  figcaption {
-    flex-shrink: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 4px 14px;
-    font-family: $font-mono;
-    font-size: 11px;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.6);
-  }
-}
-
-.photo-spread__name {
-  font-family: $font-condensed;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: $white;
-}
-
-.photo-spread__year {
-  color: rgba(255, 255, 255, 0.4);
 }
 
 .photo-spread__hint {
