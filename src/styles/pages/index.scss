@@ -21,6 +21,9 @@
   #images {
     width: 100%;
     height: 100%;
+    // Hand touch gestures to the grid's own drag handling rather than
+    // letting the browser interpret them as page panning or zoom.
+    touch-action: none;
     display: inline-block;
     white-space: nowrap;
     position: relative;
