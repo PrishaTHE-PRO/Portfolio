@@ -1,0 +1,271 @@
+@import './util';
+@import './nav';
+@import './transitions';
+@import './about';
+
+.photo-piles-section {
+  border-top: none;
+  padding-top: 0;
+}
+
+.photo-piles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(48px, 5vw, 84px) clamp(32px, 4vw, 64px);
+
+  @media (max-width: 600px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.photo-pile {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+// The stack: the top photo sits square, the ones behind fan out from it.
+.photo-pile__stack {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 18px;
+}
+
+.photo-pile__layer {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(32, 29, 27, 0.28);
+  background: $white;
+  box-shadow: 0 10px 24px rgba(32, 29, 27, 0.12);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1),
+              box-shadow 0.35s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &[data-depth='2'] { transform: rotate(-5deg) translate(-10px, 8px); z-index: 1; }
+  &[data-depth='1'] { transform: rotate(3deg) translate(8px, 4px);    z-index: 2; }
+  &[data-depth='0'] { transform: none;                                z-index: 3; }
+}
+
+.photo-pile:hover,
+.photo-pile:focus-visible {
+  outline: none;
+
+  .photo-pile__layer[data-depth='2'] { transform: rotate(-9deg) translate(-22px, 12px); }
+  .photo-pile__layer[data-depth='1'] { transform: rotate(6deg) translate(18px, 6px); }
+  .photo-pile__layer[data-depth='0'] { transform: translateY(-6px); box-shadow: 0 18px 34px rgba(32, 29, 27, 0.2); }
+}
+
+.photo-pile__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.photo-pile__title {
+  font-family: $font-condensed;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.photo-pile__count,
+.photo-pile__blurb {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(32, 29, 27, 0.6);
+}
+
+.photo-pile__blurb {
+  display: block;
+  margin-top: 4px;
+  max-width: 34ch;
+}
+
+// ---- the spread ----------------------------------------------------------
+
+html.spread-open,
+html.spread-open body {
+  overflow: hidden;
+}
+
+.photo-spread {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // display:flex outweighs the UA rule behind the hidden attribute, so
+  // without this the closed overlay still covers the page and eats clicks.
+  &[hidden] {
+    display: none;
+  }
+}
+
+.photo-spread__backdrop {
+  position: absolute;
+  inset: 0;
+  // Dark and blurred enough that the page behind stops competing with the
+  // photo captions, which sit right on top of it.
+  background: rgba(16, 14, 13, 0.94);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-spread__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: clamp(18px, 3vw, 42px) 0 clamp(14px, 2vw, 26px);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.photo-spread.is-open {
+  .photo-spread__backdrop { opacity: 1; }
+  .photo-spread__panel    { opacity: 1; transform: none; }
+}
+
+.photo-spread__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-shrink: 0;
+  padding: 0 clamp(18px, 4vw, 56px) clamp(14px, 2vw, 24px);
+  color: $white;
+}
+
+.photo-spread__title {
+  font-family: $font-display;
+  font-size: clamp(30px, 4.5vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+  margin: 0 0 6px;
+}
+
+.photo-spread__count {
+  font-family: $font-mono;
+  font-size: 12px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.photo-spread__close {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: transparent;
+  color: $white;
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: $white;
+    color: $black;
+  }
+}
+
+.photo-spread__track {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.5vw, 40px);
+  padding: 0 clamp(18px, 4vw, 56px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: clamp(18px, 4vw, 56px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+
+  &::-webkit-scrollbar { height: 5px; }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 3px;
+  }
+}
+
+.photo-spread__item {
+  flex: 0 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  scroll-snap-align: center;
+
+  img {
+    flex: 1;
+    min-height: 0;
+    width: auto;
+    max-width: min(86vw, 1100px);
+    object-fit: contain;
+    display: block;
+  }
+
+  figcaption {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 14px;
+    font-family: $font-mono;
+    font-size: 11px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.photo-spread__name {
+  font-family: $font-condensed;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $white;
+}
+
+.photo-spread__year {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.photo-spread__hint {
+  flex-shrink: 0;
+  margin: 0;
+  padding-top: clamp(8px, 1.5vw, 14px);
+  text-align: center;
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}

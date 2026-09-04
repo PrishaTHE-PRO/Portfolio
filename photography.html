@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About — Prisha Agarwalla</title>
-  <meta name="description" content="About Prisha Agarwalla">
+  <title>Photography — Prisha Agarwalla</title>
+  <meta name="description" content="Photography by Prisha Agarwalla">
   <script>
     if (sessionStorage.getItem('page-transition') === 'enter-about') {
       document.documentElement.classList.add('page-transition-pending');
@@ -42,49 +42,33 @@
 
   <main class="about">
     <header class="about__intro">
-      <h1 class="about__title">About</h1>
+      <h1 class="about__title">Photography</h1>
       <p class="about__lead">
-        Hi, I'm Prisha, a Computer Science and Data Science student at UW-Madison.
-        I build AI tools for problems I actually run into, usually starting at a
-        hackathon and refusing to stop there. The rest of the time I'm behind a
-        camera, somewhere new.
+        Piles of photographs, sorted roughly by where my head was at.
+        Tap one to spread it out.
       </p>
     </header>
 
-    <section class="about__section about__section--contact">
-      <h2>Contact</h2>
-      <div class="about__links">
-        <a href="mailto:prishaagarwalla50@gmail.com">prishaagarwalla50@gmail.com</a>
-        <a href="https://github.com/PrishaTHE-PRO" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/prisha-agarwalla-126a15285/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </div>
-    </section>
-    </section>
-
-    <section class="about__section about-duo">
-      <section class="about-duo__col about-experience">
-        <h2 class="about__heading">Experience</h2>
-        <p class="about-experience__lead">Where I've built, learned, and shipped things.</p>
-        <div class="about-experience__timeline" id="experienceTimeline"></div>
-      </section>
-
-      <section class="about-duo__col about-tool">
-        <h2 class="about__heading">Stack</h2>
-        <p class="about-tool__lead">Languages, frameworks, and tools I build with.</p>
-        <div class="about-tool__stage" id="proximityStage"></div>
-      </section>
-    </section>
-
-    <section class="about__section about-projects">
-      <h2 class="about__heading">Projects</h2>
-      <p class="about-projects__lead">Project collection</p>
-      <div class="about-projects__scroll">
-        <div class="about-projects__track" id="projectsList"></div>
-        <span class="about-projects__hint" aria-hidden="true">scroll &rarr;</span>
-      </div>
+    <section class="about__section photo-piles-section">
+      <div class="photo-piles" id="photoPiles"></div>
     </section>
   </main>
 
-  <script type="module" src="/src/js/about.js"></script>
+  <div class="photo-spread" id="photoSpread" hidden>
+    <div class="photo-spread__backdrop" data-spread-close></div>
+    <div class="photo-spread__panel" role="dialog" aria-modal="true" aria-labelledby="spreadTitle">
+      <header class="photo-spread__head">
+        <div>
+          <h2 class="photo-spread__title" id="spreadTitle"></h2>
+          <p class="photo-spread__count"></p>
+        </div>
+        <button type="button" class="photo-spread__close" data-spread-close aria-label="Close">Close ✕</button>
+      </header>
+      <div class="photo-spread__track" id="spreadTrack"></div>
+      <p class="photo-spread__hint" aria-hidden="true">scroll →</p>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/photography.js"></script>
 </body>
 </html>
