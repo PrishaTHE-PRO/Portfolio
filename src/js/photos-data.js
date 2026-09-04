@@ -28,6 +28,10 @@ export const piles = [
       { src: 'IMG_3270.JPG', w: 1280, h: 1920, title: 'With Dad', place: 'Elkhorn South High School', note: 'The photo the family actually wanted', year: '2025' },
       { src: '94B0763D-04A2-4ED7-A76A-22787D56172A.JPG', w: 1174, h: 1630, title: 'Cap Toss', place: 'Elkhorn South High School', note: 'Chalk underfoot, cap in the air', year: '2025' },
       { src: 'AD259748-6F52-46D5-B933-F68064B3F66C.JPG', w: 1241, h: 1920, title: 'On the Sign', place: 'Elkhorn South High School', note: 'Sitting on the school name one last time', year: '2025' },
+      { src: '0040AACE-5FF5-4863-A62C-FED3CFA84004.jpeg', w: 1280, h: 1920, title: 'The Diploma', place: 'Elkhorn South High School', note: 'Cords, medal, and the folder that makes it official', year: '2025' },
+      { src: '87D5368D-9C08-43B2-9F97-6C681BA9DF7C.jpeg', w: 1280, h: 1830, title: 'Cap Raised', place: 'Elkhorn South High School', note: 'Back up on the sign, arm all the way out', year: '2025' },
+      { src: '8AE7A926-0F18-44C7-A84C-98C097B6CD0A.jpeg', w: 1167, h: 1864, title: 'Out the Door', place: 'Elkhorn South High School', note: 'The last walk out of the building', year: '2025' },
+      { src: '39B38236-8B85-406A-8D1D-83D54263E3A0.jpeg', w: 1151, h: 1489, title: 'Cap in Hand', place: 'Elkhorn South High School', note: 'Gold tassels against the lace, no face needed', year: '2025' },
     ],
   },
   {
