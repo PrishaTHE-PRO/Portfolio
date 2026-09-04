@@ -50,11 +50,6 @@
   }
 }
 
-.site-nav__item--muted {
-  color: rgba(32, 29, 27, 0.38);
-  pointer-events: none;
-}
-
 .site-nav__brand {
   padding: 10px 22px 12px;
   border-right: 1px solid $line;
@@ -118,7 +113,7 @@
   }
 
   .site-nav__primary {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     min-height: 0;
   }
 
@@ -138,13 +133,16 @@
     letter-spacing: 0.2em;
     border-top: 0;
 
-    &:nth-child(4) {
+    // Right-hand column of the 2x2 block: About and Photography.
+    &:nth-child(2),
+    &:nth-child(5) {
       border-right: none;
     }
-  }
 
-  .site-nav__item--muted {
-    display: none;
+    &:nth-child(4),
+    &:nth-child(5) {
+      border-top: 1px solid $line;
+    }
   }
 
   .site-nav__secondary {
