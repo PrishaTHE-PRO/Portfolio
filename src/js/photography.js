@@ -23,7 +23,7 @@ function renderPiles() {
       const depth = arr.length - 1 - j;          // 0 == the top photo
       return `
         <div class="photo-pile__layer" data-depth="${depth}">
-          <img src="${asset(`img/${photo.src}`)}" alt="${depth === 0 ? photo.title : ''}"
+          <img src="${asset(`photographs/${photo.src}`)}" alt="${depth === 0 ? photo.title : ''}"
                width="${photo.w}" height="${photo.h}" loading="lazy" ${depth === 0 ? '' : 'aria-hidden="true"'}>
         </div>`;
     }).join('');
@@ -52,7 +52,7 @@ function openPile(index) {
 
   trackEl.innerHTML = pile.photos.map((photo) => `
     <figure class="photo-spread__item">
-      <img src="${asset(`img/${photo.src}`)}" alt="${photo.title}"
+      <img src="${asset(`photographs/${photo.src}`)}" alt="${photo.title}"
            width="${photo.w}" height="${photo.h}">
       <figcaption>
         <span class="photo-spread__name">${photo.title}</span>
