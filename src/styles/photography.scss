@@ -3,6 +3,20 @@
 @import './transitions';
 @import './about';
 
+// "Photography" is a far longer word than "About": at the shared title size
+// it ran 722px wide in a 682px column, overflowing into the lead and
+// overlapping it outright below 1300px. Size the title to fit its column,
+// and ease the lead down a step to give the pair some air.
+.photo-page {
+  .about__title {
+    font-size: clamp(44px, 8vw, 104px);
+  }
+
+  .about__lead {
+    font-size: clamp(14px, 1.05vw, 16px);
+  }
+}
+
 .photo-piles-section {
   border-top: none;
   padding-top: 0;
