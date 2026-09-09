@@ -17,6 +17,26 @@
   }
 }
 
+// The intro's second grid cell now holds the lead plus the Instagram handle.
+.photo-intro {
+  min-width: 0;
+}
+
+.photo-intro__ig {
+  margin: 14px 0 0;
+  font-size: 13px;
+
+  a {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
 .photo-piles-section {
   border-top: none;
   padding-top: 0;
