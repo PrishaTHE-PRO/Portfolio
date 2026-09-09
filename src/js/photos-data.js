@@ -32,6 +32,8 @@ export const piles = [
       { src: '87D5368D-9C08-43B2-9F97-6C681BA9DF7C.jpeg', w: 1119, h: 1600, title: 'Cap Raised', place: 'Elkhorn South High School', note: 'Back up on the sign, arm all the way out', year: '2025' },
       { src: '8AE7A926-0F18-44C7-A84C-98C097B6CD0A.jpeg', w: 1001, h: 1600, title: 'Out the Door', place: 'Elkhorn South High School', note: 'The last walk out of the building', year: '2025' },
       { src: '39B38236-8B85-406A-8D1D-83D54263E3A0.jpeg', w: 1237, h: 1600, title: 'Cap in Hand', place: 'Elkhorn South High School', note: 'Gold tassels against the lace, no face needed', year: '2025' },
+      { src: 'IMG_3021.JPG', w: 1066, h: 1600, title: 'The Throw', place: 'Elkhorn South High School', note: 'Cap mid-air over the front doors', year: '2025' },
+      { src: 'IMG_3015.JPG', w: 1066, h: 1600, title: 'Cap Overhead', place: 'Elkhorn South High School', note: 'Turned to the school, holding it up', year: '2025' },
     ],
   },
   {
