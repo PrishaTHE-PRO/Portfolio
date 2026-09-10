@@ -556,7 +556,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(168px, 18.5vw, 218px);
+  width: clamp(190px, 20.5vw, 246px);
   margin-top: -31px;          // hang the strap off the rail itself
   padding: 0;
   border: 0;
@@ -581,7 +581,7 @@ a {
 .lanyard__strap {
   position: relative;
   width: 100%;
-  height: 64px;
+  height: 74px;
   flex-shrink: 0;
 
   &::before,
@@ -590,7 +590,7 @@ a {
     position: absolute;
     top: 0;
     width: 2px;
-    height: 68px;
+    height: 79px;
     background: rgba(32, 29, 27, 0.55);
     transform-origin: top center;
   }
@@ -606,7 +606,7 @@ a {
   align-items: center;
   gap: 3px;
   width: 100%;
-  padding: 27px 17px 22px;
+  padding: 32px 19px 26px;
   background: $white;
   border: 1px solid rgba(32, 29, 27, 0.4);
   border-radius: 4px;
@@ -617,10 +617,10 @@ a {
 // The slot the clip goes through.
 .lanyard__punch {
   position: absolute;
-  top: 11px;
+  top: 13px;
   left: 50%;
-  width: 42px;
-  height: 6px;
+  width: 50px;
+  height: 7px;
   border-radius: 3px;
   background: $outside;
   box-shadow: inset 0 0 0 1px rgba(32, 29, 27, 0.35);
@@ -629,7 +629,7 @@ a {
 
 .lanyard__org {
   font-family: $font-condensed;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.03em;
   line-height: 1.15;
@@ -638,14 +638,14 @@ a {
 }
 
 .lanyard__role {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
   text-align: center;
   color: rgba(32, 29, 27, 0.62);
 }
 
 .lanyard__year {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.14em;
   color: rgba(32, 29, 27, 0.42);
 }
@@ -767,21 +767,21 @@ a {
   }
 }
 
-// On phones the badges wrap to two rows, but each one is pulled up 31px to
-// hang off the rail -- which the wrapped row inherited, driving it straight
-// into the row above. Lay the rows out explicitly, and give the lower row a
-// rail of its own to hang from.
-@media (max-width: 700px) {
+// Wherever the badges wrap, they wrap to two rows -- and each is pulled up
+// 31px to hang off the rail, which the wrapped row inherited, driving it
+// straight into the row above. So from the width where four no longer fit,
+// lay the rows out explicitly and give the lower row a rail of its own.
+@media (max-width: 1260px) {
   .about-involve__rail {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-items: center;
-    gap: 84px clamp(10px, 4vw, 24px);
+    gap: 94px clamp(10px, 4vw, 24px);
   }
 
   .lanyard {
     width: 100%;
-    max-width: 190px;
+    max-width: 222px;
 
     &:nth-child(n + 3) {
       margin-top: 0;
