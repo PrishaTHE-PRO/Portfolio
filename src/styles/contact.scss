@@ -1,0 +1,83 @@
+@import './util';
+@import './nav';
+@import './transitions';
+@import './about';
+
+// "Contact" is a shorter word than "Photography", but still wider than
+// "About" at the shared size, so it gets its own step down.
+.contact-page {
+  .about__title {
+    font-size: clamp(56px, 10.5vw, 136px);
+  }
+}
+
+.contact-list-section {
+  border-top: none;
+  padding-top: 0;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-list__row {
+  display: grid;
+  grid-template-columns: minmax(96px, 0.18fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 4px clamp(16px, 3vw, 40px);
+  padding: clamp(20px, 2.4vw, 30px) 0;
+  border-bottom: 1px solid rgba(32, 29, 27, 0.16);
+
+  @media (max-width: 620px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px 0;
+  }
+}
+
+.contact-list__label {
+  font-family: $font-condensed;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(32, 29, 27, 0.5);
+}
+
+.contact-list__value {
+  font-family: $font-condensed;
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  word-break: break-word;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.55;
+  }
+}
+
+.contact-list__note {
+  grid-column: 2;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(32, 29, 27, 0.55);
+
+  @media (max-width: 620px) {
+    grid-column: 1;
+  }
+}
+
+.contact-outro {
+  margin: clamp(40px, 5vw, 64px) 0 0;
+  max-width: 46ch;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(32, 29, 27, 0.72);
+}
