@@ -63,6 +63,16 @@
   }
 }
 
+// The resume row is a statement, not a destination.
+.contact-list__value--plain {
+  text-decoration: none;
+  cursor: default;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .contact-list__note {
   grid-column: 2;
   font-size: 12px;
