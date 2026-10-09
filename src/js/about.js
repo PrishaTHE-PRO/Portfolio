@@ -29,6 +29,6 @@ initInvolvement(
 );
 
 initMascot(document.getElementById('pageMascot'), {
-  directions: './mascots/fox-directions.webp',
-  reactions: './mascots/fox-reactions.webp',
+  directions: './mascots/prisha-directions.webp',
+  reactions: './mascots/prisha-reactions.webp',
 });
