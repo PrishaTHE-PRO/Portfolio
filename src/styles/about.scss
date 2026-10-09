@@ -129,8 +129,8 @@ a {
   position: relative;
   display: block;
   flex-shrink: 0;
-  width: 140px;
-  height: 140px;
+  width: clamp(180px, 20vw, 260px);
+  height: clamp(180px, 20vw, 260px);
   padding: 0;
   border: 0;
   background: transparent;
@@ -140,8 +140,8 @@ a {
   -webkit-tap-highlight-color: transparent;
 
   @media (max-width: 760px) {
-    width: 104px;
-    height: 104px;
+    width: 140px;
+    height: 140px;
   }
 }
 

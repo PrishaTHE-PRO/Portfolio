@@ -72,7 +72,8 @@ export function initMascot(button, { directions, reactions }) {
       const box = button.getBoundingClientRect();
       const dx = pointer.x - (box.left + box.width / 2);
       const dy = pointer.y - (box.top + box.height / 2);
-      if (Math.hypot(dx, dy) < DEAD_ZONE) {
+      // Scale the dead zone with the rendered size so a big mascot settles too.
+      if (Math.hypot(dx, dy) < Math.max(DEAD_ZONE, box.width / 2)) {
         sector = -1;
         setDirection('center');
         return;
