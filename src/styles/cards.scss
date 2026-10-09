@@ -256,6 +256,19 @@ $card-muted: rgba(32, 29, 27, 0.62);
   font-size: 14px;
 }
 
+.course-list__note {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+  color: rgba(32, 29, 27, 0.62);
+  border: 1px solid rgba(32, 29, 27, 0.14);
+  border-radius: 999px;
+}
+
 .course-empty {
   font-size: 14px;
   color: $card-muted;
@@ -263,4 +276,9 @@ $card-muted: rgba(32, 29, 27, 0.62);
 
 .about-projects .about__heading {
   font-size: clamp(41px, 7vw, 90px);
+}
+
+// One short subject shouldn't stretch to the height of a long one.
+.courses-page .card-grid {
+  align-items: start;
 }
