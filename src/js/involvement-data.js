@@ -1,5 +1,5 @@
-// Leadership hangs as lanyard badges; awards sit beneath as a plain list.
-// Add an entry to either array and the section picks it up.
+// Leadership and awards each have their own page of cards.
+// Add an entry to either array and that page picks it up.
 export const leadership = [
   {
     org: 'Y Combinator',
