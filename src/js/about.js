@@ -6,7 +6,6 @@ import { renderTools } from './tools-data';
 import { renderProjects } from './projects-data';
 import { renderExperience } from './experience-data';
 import { initExperienceTimeline } from './experience-timeline';
-import { initInvolvement } from './involvement';
 import { initMascot } from './mascot';
 
 initPageTransitions();
@@ -21,12 +20,6 @@ renderProjects(document.getElementById('projectsList'));
 const stage = document.getElementById('proximityStage');
 renderTools(stage);
 initProximityGrid(stage);
-
-initInvolvement(
-  document.getElementById('lanyardRail'),
-  document.getElementById('lanyardDetail'),
-  document.getElementById('awardsList'),
-);
 
 initMascot(document.getElementById('pageMascot'), {
   directions: './mascots/prisha-directions.webp',
