@@ -32,12 +32,6 @@ export const projects = [
     image: 'img/launchpad.jpg',
     github: 'https://github.com/PrishaTHE-PRO/LaunchPad',
   },
-  {
-    title: 'LinkStash',
-    summary: 'A macOS menu bar app that lets you instantly save and categorize links without leaving what you are doing.',
-    image: 'photographs/IMG_4434.JPG',
-    github: 'https://github.com/PrishaTHE-PRO/LinkStash',
-  },
 ];
 
 export function renderProjects(container) {
