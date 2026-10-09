@@ -40,13 +40,6 @@ export const projects = [
     tags: ['Next.js', 'TypeScript', 'Tailwind'],
     github: 'https://github.com/PrishaTHE-PRO/LaunchPad',
   },
-  {
-    title: 'LinkStash',
-    image: 'photographs/IMG_4434.JPG',
-    summary: 'A macOS menu bar app that lets you instantly save and categorize links without leaving what you are doing.',
-    tags: ['Swift', 'SwiftUI', 'macOS'],
-    github: 'https://github.com/PrishaTHE-PRO/LinkStash',
-  },
 ];
 
 const external = 'target="_blank" rel="noopener noreferrer"';
