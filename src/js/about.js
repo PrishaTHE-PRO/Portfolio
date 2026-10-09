@@ -7,6 +7,7 @@ import { renderProjects } from './projects-data';
 import { renderExperience } from './experience-data';
 import { initExperienceTimeline } from './experience-timeline';
 import { initInvolvement } from './involvement';
+import { initMascot } from './mascot';
 
 initPageTransitions();
 playEnterTransition();
@@ -26,3 +27,8 @@ initInvolvement(
   document.getElementById('lanyardDetail'),
   document.getElementById('awardsList'),
 );
+
+initMascot(document.getElementById('pageMascot'), {
+  directions: './mascots/fox-directions.webp',
+  reactions: './mascots/fox-reactions.webp',
+});
