@@ -2,12 +2,6 @@
 // Add an entry to either array and that page picks it up.
 export const leadership = [
   {
-    org: 'Y Combinator',
-    role: 'Startup School',
-    year: '2026',
-    detail: 'Selected from a competitive pool — roughly 7% acceptance — as a top technical student builder. Awarded $25K+ in AI compute credits, and sat in on talks by Sam Altman, Jensen Huang, and Alexandr Wang.',
-  },
-  {
     org: 'Adobe',
     role: 'Student Ambassador',
     year: '',
