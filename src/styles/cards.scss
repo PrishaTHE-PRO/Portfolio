@@ -282,3 +282,29 @@ $card-muted: rgba(32, 29, 27, 0.62);
 .courses-page .card-grid {
   align-items: start;
 }
+
+// Five project cards in a three-up grid strand the last two on the left.
+// Flex lets the final row centre under the one above, with the max-width
+// holding the same three-, two- and one-per-row steps the grid had.
+.about-projects {
+  .card-grid {
+    --card-gap: clamp(16px, 2vw, 24px);   // same step the grid used
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--card-gap);
+  }
+
+  .card {
+    flex: 1 1 300px;
+    max-width: calc((100% - 2 * var(--card-gap)) / 3);
+
+    @media (max-width: 900px) {
+      max-width: calc((100% - var(--card-gap)) / 2);
+    }
+
+    @media (max-width: 620px) {
+      max-width: 100%;
+    }
+  }
+}
